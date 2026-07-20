@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Word Salad">
+<meta name="theme-color" content="#2C4A76">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Word%20Salad%20%5Cu00b7%20Japanese%22%2C%22short_name%22%3A%22Word%20Salad%22%2C%22start_url%22%3A%22./%22%2C%22scope%22%3A%22./%22%2C%22display%22%3A%22standalone%22%2C%22orientation%22%3A%22portrait%22%2C%22background_color%22%3A%22%23F6F6F2%22%2C%22theme_color%22%3A%22%232C4A76%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAI9klEQVR42u2dXWwcVxXHz7l3Znb2y1%2B1aYjiJi62UtLUSR6gpEoQqFKpgqwglJco5YGIB1Qk3ooUUFHe4AXUPhSpRaJIpQ9IqE0faKOIolCQ0kKjmiQkIR%2BOE%2BcD7DT%2B2PXu7Mzce3hwg4RK09iZ8e7O/n/y%2B3rv/ubcM/fccy9v3vUDAuD/oTAEAHIAyAEgB4AcAHIAyAEgB4AcAHIAyAEA5ACQA0AOADkA5ACQA0AOADkA5ACQAwDIASAHgBwAcgDIASAHgBwAcgDIASAHAJADQA4AOQDkAJADQA4AOQDkAJADZB4ndfuYWbGIYKzvHiYmJmNsluXQStWCMGhEnquJmAiK3I0abGIjRKWirxVbK1mTg5mJaK5SG904%2BMSOhzePrHW0ghqfiggppf59c/7d8YuH/3yqVg%2BLhVyzQgincfY5M1trg0Z84Lu79o1t9/0ckcUPf/eGLOWC5yZuHPjZ747/43JPV6EpfqQlR6MRHfz%2B7r1jO%2Bv1amysYsZvvpz4IUJSLhVm5xe/88OXT5y7WvC91Z9fkp9WtFZzC7W9X39079jOSmVea%2B1ovBMtPyUlqlRqvd3Fnz6z55vfe6EpmUfiPxsbY4v53Le%2BsT2OA6UQMu7hwXV0pVIf2fDZJ3duriwGetWfsYQ/TylqhNHw%2Bs88ODgQRbFSUOMeJ2gSou3bPteUcUxexsjYgd6y34w5MotyMJOs6e92tFr9taLk5WCi2FjCqldyxMY0ZTRVOr7jB004flBm5ADZAHIAyAEgB4AcAHIAyAE6SA4sgCU9npIROYTI0QoLYQniaJ2R2oqr1cxsJQhCVN0SiRki/K%2Bb87Gxq79OmrAc1lLOcy9cnp6YmnFdB7W3e5eDmd8dn8hGbUW0Vov1xiuHjjmOb61F/rFi4tiUS4UTZyff/NOJctFf/Z2Cye8EM8Z2lfKvHTk%2B%2BtA6bBNcad4mYqVcLszOL/7o5683wriQz8Q2wY8yD1c/%2B9yhWhDuG9teLuWxwXiZOb0i4vHTkz9%2B/vXTF66XS352NhjT7SrzQrWO1oTlrgL8tzXhrXdONsK4ia0JTmpfUoiop1w4O3Fj/MwVNDUt68FaamoqF/1C3mti31u6HW/G2nzOLeQ9tEMuT4/b7ZDNfd1LvVfWipCBGStIO5oPaisAcgDIASAHgBwAcgDIAdoMZ3U%2BJgNlN4EcyYcmFiEyts0LK0JKiWYRIhGGHPccLZhEqBp6Wtkev8Ht/OwxUz1yKg3P0zbnxLYz/HDSCxiRUcz0teFLjz1wbW15UbFt0%2BlFiBRLpeH982bf4fNDk3PdBTfqBD%2BclMwIjS640TM7/rrl/pnIqsjodk84unLhUM/8V4emfnn8kcPnh7pyYeb9SF4OJoqt8p34wJff%2B/zAh7OBr1iY2z6fM7EKSDssT39x3Fp%2Be2J90ct4/Ejh8BaWeuSMbbz4yP0z80HOUVaxMFHb/7FoFiMcxfqpLacHivXIZnx/vUo%2BbAh3%2B42d669WG55WWdsdqFgaVt1XCB574Fo9chQL5FhG2IiMHuyu9BUCk9EHi4mM5Y333XI441uYUuh4E/bd2FVZblkRooIbMeRYmR%2BZX0/shFdZ1FYA5ACQA0AOADkA5ACQA0AOADnuQCfsqBPIsTI0Z3/5UGd/ETiFa7wUy1yQaxjNGR0%2BIVJMt%2Bp5I4yS/TKwQp421%2BZL1xdKrrLZLEAIK5aT0/2Zv1gm%2BWlFs9Rj963zQwUvspmrwMVWlbzwzEzfsStrC25kMj1/pnBgnHDRjY5ODg73zY1tvDjf8JpxhGY6IUOo7IWV0Hvx/S2h1fmsb0NPa/e5o%2BxLx0eDWD85cqnkR7Ft40Hk23mGYjkz0/fi%2B1suzfZ0wgb01A6MIyKixcgd7pt9dN2Nod55rWybvv8JsVb2Vi1/crr/2JW1kdV%2BZ7SupHZgHBERlbxwcq773Ie9brtvJmUyloW46EY%2BmpoSennhnBPnHZJ2XjVamlb49jeyaIdMLolj0/4LG9SRjdSorQDIASAHgBwAcgDIASAHaDNW68A43NTUvBtAW1cOrZSIRLGRTJwpuEItiJjIdTQzG2shBzGziMxVaq6j%2B3tLHR48ROTmbDWKTbnoL41M58qhFIeRUcz7xr606yujDw72a9XR%2BY2xdmLq5ptHTxz6wwdWrOfq1r9XNZWSvVIcNKKuUv4XB5/6wugISRxFcYdfyMNErusQO387cf7pg79ZqNb9nNvifiQvBzMZIznP%2BdVPvr1101ClUlWKkZAuzSzWSrlcGj99af%2BBlxthrHVLn/%2BiUggbqloL9u/ZsXXT8MJC1XG0WrKj41FKOY5eWKhu3TS8f8%2BOai1QrT3VJn4mGMex6e8t7X58WxjWHAfrKB/L8hwVhrXdj2/r7y3FsWnlmJq4HBQ0opENa9YMdLf4N2/aRM4cx2bNQPfIhjVBI2rlEUr%2BybYixbznuhq3hX5y8kGuq4t5z7b2GKUS9q0VXC/8aYJQ67/KIicAkANADgA5AOQAkANADgA5AOS4A1gbzcYopXDfCpGjFaGqcmeYHd3qd%2B0mL4er1cxsJQhCpeDHJwy64noQzsxWXN1JJXtrKee5Fy5PT0zNuK5jLSaYjw%2BReJ47eXXmwuXpnOe28nbjxM0VrdVivfHKoWOO41trkX/8b54hVkRr56XfvlMLQqVUK5/tkMKBccZ2lfKvHTk%2B%2BtC6vWM76/VqbKxCCkJkRRylyqWuV984%2BsbbH3SVfNvabQpp7T53Xf3sc4dqQbhvbHu5lCeykINIB0H9%2BV///oVX/1jM51q/OyG1A%2BOYiWihWh/dOPjEjoc3j6xt/eQ8xVEmio09df76kb%2Bc%2BvvZqe5ygdqhAS61A%2BNEiKinXDg7cWP8zBXP1bfP1upYPSSMjJ9ze7uLxrRHHE23HdJYm8%2B5hbwnyEuJSsxipV3MoFXolbUiZGDGR/G0vf5d1FYA5ACQA0AOADkA5ACQA0AOADkA5ACQAwDIASAHgBwAcgDIASAHgBwAcgDIASAHAJADQA4AOQDkAJADQA4AOQDkAJADQA4AIAeAHAByAMgBIAdoLv8BrHSW70thM%2BYAAAAASUVORK5CYII%3D%22%2C%22sizes%22%3A%22180x180%22%2C%22type%22%3A%22image/png%22%2C%22purpose%22%3A%22any%22%7D%5D%7D">
+<title>Word Salad · Japanese</title>
+<style>
+  :root{
+    --paper:#F6F6F2;
+    --ink:#1B1B22;
+    --ink-soft:#5A5A66;
+    --indigo:#2C4A76;
+    --indigo-deep:#1E3355;
+    --tile:#FFFFFF;
+    --tile-edge:#E4E4DC;
+    --highlight:#EDF2FA;
+    --danger:#A33B2E;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html{font-size:16px;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+    padding-bottom:60px;
+  }
+  .ja-text{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;}
+
+  header{
+    padding:26px 18px 14px;
+    max-width:640px;margin:0 auto;
+  }
+  header h1{
+    font-size:1.55rem;font-weight:800;letter-spacing:-0.02em;
+  }
+  header h1 .ja-text{color:var(--indigo);font-weight:700;font-size:1.1rem;margin-left:8px;}
+  header p{color:var(--ink-soft);font-size:0.85rem;margin-top:4px;line-height:1.45;}
+  header p strong{color:var(--indigo);font-weight:600;}
+
+  #voiceWarn{
+    display:none;
+    max-width:640px;margin:8px auto 0;
+    padding:10px 18px;
+    color:var(--danger);font-size:0.8rem;line-height:1.4;
+  }
+
+  /* Category tabs */
+  nav{
+    position:sticky;top:0;z-index:10;
+    background:linear-gradient(var(--paper) 85%, rgba(246,246,242,0));
+    padding:8px 0 12px;
+  }
+  .tabs{
+    display:flex;gap:8px;overflow-x:auto;
+    padding:0 18px;
+    max-width:640px;margin:0 auto;
+    scrollbar-width:none;
+  }
+  .tabs::-webkit-scrollbar{display:none;}
+  .tab{
+    flex:0 0 auto;
+    border:1px solid var(--tile-edge);
+    background:var(--tile);
+    color:var(--ink);
+    border-radius:999px;
+    padding:8px 15px;
+    font-size:0.85rem;font-weight:600;
+    cursor:pointer;
+    transition:background .15s,color .15s;
+  }
+  .tab.active{background:var(--indigo);border-color:var(--indigo);color:#fff;}
+  .tab:focus-visible{outline:2px solid var(--indigo);outline-offset:2px;}
+
+  main{max-width:640px;margin:0 auto;padding:4px 18px;}
+
+  .cat-note{
+    color:var(--ink-soft);font-size:0.8rem;
+    margin:2px 0 14px;line-height:1.45;
+  }
+
+  /* Phrase card */
+  .card{
+    background:var(--tile);
+    border:1px solid var(--tile-edge);
+    border-radius:var(--radius);
+    padding:14px 14px 12px;
+    margin-bottom:14px;
+    box-shadow:0 1px 2px rgba(27,27,34,0.04);
+  }
+  .card-top{
+    display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;
+  }
+  .card-meaning{flex:1;min-width:0;}
+  .card-meaning .en{font-size:1.02rem;font-weight:700;line-height:1.3;}
+  .card-meaning .ja-full{color:var(--ink-soft);font-size:0.82rem;margin-top:2px;}
+  .play{
+    flex:0 0 auto;
+    width:42px;height:42px;border-radius:50%;
+    border:none;background:var(--indigo);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+    transition:transform .1s,background .15s;
+  }
+  .play:active{transform:scale(0.92);}
+  .play.speaking{background:var(--indigo-deep);}
+  .play svg{width:17px;height:17px;fill:currentColor;margin-left:2px;}
+  .play.speaking svg{margin-left:0;}
+  .play:focus-visible{outline:2px solid var(--indigo-deep);outline-offset:2px;}
+
+  /* Word tiles — the point of the whole tool */
+  .tiles{display:flex;flex-wrap:wrap;gap:7px;}
+  .tile-btn{
+    border:1px solid var(--tile-edge);
+    background:var(--paper);
+    border-radius:10px;
+    padding:7px 11px 8px;
+    text-align:left;
+    cursor:pointer;
+    transition:background .15s,border-color .15s;
+  }
+  .tile-btn:active{background:var(--highlight);}
+  .tile-btn.speaking{background:var(--highlight);border-color:var(--indigo);}
+  .tile-btn:focus-visible{outline:2px solid var(--indigo);outline-offset:1px;}
+  .tile-btn .romaji{
+    display:block;font-weight:700;font-size:0.95rem;color:var(--ink);
+    letter-spacing:0.01em;
+  }
+  .tile-btn .gloss{
+    display:block;font-size:0.72rem;color:var(--indigo);
+    font-weight:600;margin-top:1px;
+  }
+  .tile-btn .kana{
+    display:block;font-size:0.68rem;color:var(--ink-soft);margin-top:1px;
+  }
+  .tile-btn.particle{border-style:dashed;}
+  .tile-btn.particle .gloss{color:var(--ink-soft);font-style:italic;font-weight:500;}
+
+  .tip{
+    color:var(--ink-soft);font-size:0.78rem;line-height:1.45;
+    margin-top:10px;padding-top:9px;border-top:1px dashed var(--tile-edge);
+  }
+  .tip b{color:var(--ink);font-weight:600;}
+
+  /* Etiquette cards */
+  .eti-group{
+    font-size:0.72rem;font-weight:700;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--indigo);
+    margin:20px 0 8px;
+  }
+  .eti-group:first-of-type{margin-top:4px;}
+  .eti-card{
+    background:var(--tile);
+    border:1px solid var(--tile-edge);
+    border-radius:var(--radius);
+    padding:12px 14px;
+    margin-bottom:10px;
+    display:flex;gap:12px;align-items:flex-start;
+    box-shadow:0 1px 2px rgba(27,27,34,0.04);
+  }
+  .eti-card .icon{font-size:1.35rem;line-height:1.2;flex:0 0 auto;}
+  .eti-card .body{flex:1;min-width:0;}
+  .eti-card .rule{font-weight:700;font-size:0.95rem;line-height:1.3;}
+  .eti-card .why{color:var(--ink-soft);font-size:0.82rem;line-height:1.45;margin-top:3px;}
+  .eti-card .why b{color:var(--ink);font-weight:600;}
+  .eti-card .tiles{margin-top:9px;}
+  .eti-card.dont{border-left:3px solid var(--danger);}
+  .eti-card.vary{border-left:3px solid #C99A2E;}
+
+  /* Voice picker */
+  .voice-row{
+    max-width:640px;margin:0 auto;padding:0 18px 4px;
+    display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+  }
+  .voice-row label{font-size:0.75rem;color:var(--ink-soft);font-weight:600;}
+  .voice-row select{
+    flex:1;min-width:150px;
+    font-size:0.8rem;padding:6px 8px;
+    border:1px solid var(--tile-edge);border-radius:8px;
+    background:var(--tile);color:var(--ink);
+    font-family:inherit;
+  }
+
+  /* Converter */
+  .conv-group{
+    font-size:0.72rem;font-weight:700;letter-spacing:0.08em;
+    text-transform:uppercase;color:var(--indigo);
+    margin:20px 0 8px;
+  }
+  .conv-group:first-of-type{margin-top:4px;}
+  .conv-row{
+    background:var(--tile);
+    border:1px solid var(--tile-edge);
+    border-radius:var(--radius);
+    padding:10px 12px;
+    margin-bottom:9px;
+    display:flex;align-items:center;gap:8px;
+    box-shadow:0 1px 2px rgba(27,27,34,0.04);
+  }
+  .conv-side{flex:1;min-width:0;}
+  .conv-side input{
+    width:100%;
+    font-size:1.15rem;font-weight:700;
+    font-family:inherit;color:var(--ink);
+    border:none;background:transparent;
+    padding:2px 0;
+    -moz-appearance:textfield;
+  }
+  .conv-side input::-webkit-outer-spin-button,
+  .conv-side input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0;}
+  .conv-side input:focus{outline:none;}
+  .conv-side input:focus-visible{outline:2px solid var(--indigo);outline-offset:2px;border-radius:4px;}
+  .conv-side .unit{
+    display:block;font-size:0.7rem;color:var(--ink-soft);
+    font-weight:600;text-transform:uppercase;letter-spacing:0.04em;
+  }
+  .conv-eq{color:var(--tile-edge);font-size:1.1rem;font-weight:700;flex:0 0 auto;}
+
+  .rate-box{
+    background:#FFF9E8;
+    border:1px solid #E8D9A8;
+    border-radius:var(--radius);
+    padding:12px 14px;margin-bottom:14px;
+    font-size:0.8rem;line-height:1.5;color:var(--ink-soft);
+  }
+  .rate-box b{color:var(--ink);}
+  .rate-edit{display:flex;align-items:center;gap:8px;margin-top:9px;flex-wrap:wrap;}
+  .rate-edit span{font-size:0.78rem;font-weight:600;color:var(--ink);}
+  .rate-edit input{
+    width:88px;font-size:0.95rem;font-weight:700;font-family:inherit;
+    padding:5px 8px;border:1px solid #E8D9A8;border-radius:8px;
+    background:#fff;color:var(--ink);
+  }
+  .cheat{
+    background:var(--highlight);
+    border-radius:10px;padding:10px 12px;margin-bottom:14px;
+    font-size:0.82rem;line-height:1.55;color:var(--ink);
+  }
+  .cheat b{color:var(--indigo);}
+
+  /* Casual tab */
+  .swap{
+    font-size:0.72rem;color:var(--ink-soft);
+    margin-top:3px;
+  }
+  .swap .from{text-decoration:line-through;opacity:.65;}
+  .swap .arrow{color:var(--indigo);font-weight:700;margin:0 4px;}
+  .card.warn{border-left:3px solid var(--danger);}
+  .register-box{
+    background:var(--tile);
+    border:1px solid var(--tile-edge);
+    border-left:3px solid var(--indigo);
+    border-radius:var(--radius);
+    padding:13px 14px;margin-bottom:16px;
+  }
+  .register-box h3{font-size:0.9rem;font-weight:800;margin-bottom:7px;}
+  .lvl{display:flex;gap:9px;padding:6px 0;border-top:1px dashed var(--tile-edge);}
+  .lvl:first-of-type{border-top:none;}
+  .lvl .tag{
+    flex:0 0 62px;font-size:0.68rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:0.03em;
+    color:var(--indigo);padding-top:2px;
+  }
+  .lvl .txt{flex:1;font-size:0.8rem;line-height:1.45;color:var(--ink-soft);}
+  .lvl .txt b{color:var(--ink);font-weight:600;}
+  .lvl.you .tag{color:var(--danger);}
+
+  footer{
+    max-width:640px;margin:20px auto 0;padding:0 18px;
+    color:var(--ink-soft);font-size:0.72rem;line-height:1.5;
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Word Salad<span class="ja-text">単語サラダ</span></h1>
+  <p>Tap <strong>any word tile</strong> to hear just that word. Tap <strong>▶</strong> for the full phrase. Learn the words — context does the rest.</p>
+</header>
+
+<div class="voice-row">
+  <label for="voiceSel">Voice</label>
+  <select id="voiceSel"><option>Loading…</option></select>
+</div>
+
+<div id="voiceWarn">No Japanese voice found on this device, so audio won't play. On iPhone: Settings → Accessibility → Spoken Content → Voices → Japanese (this path may vary by iOS version).</div>
+
+<nav><div class="tabs" id="tabs" role="tablist"></div></nav>
+
+<main id="main"></main>
+
+<footer>
+  Audio uses your device's built-in Japanese voice (no internet needed once loaded). Dashed tiles are grammar particles — safe to drop when word-salading. Long vowels: ō = hold the "o" twice as long.
+</footer>
+
+<script>
+// ---------- DATA ----------
+// Each word: [japanese script (spoken), romaji, gloss, isParticle?]
+const DATA = [
+{
+  cat:"Survival Kit",
+  note:"If you learn only one tab, learn this one. 'Sumimasen' alone gets you shockingly far.",
+  phrases:[
+    {en:"Excuse me / sorry / thanks (all-purpose)", words:[["すみません","sumimasen","excuse me"]],
+     tip:"<b>The #1 tourist word.</b> Gets attention, apologizes, and thanks — all in one."},
+    {en:"Thank you (polite)", words:[["ありがとう","arigatō","thanks"],["ございます","gozaimasu","(polite ending)",1]],
+     tip:"Just <b>arigatō</b> works fine on its own. Adding gozaimasu = more polite."},
+    {en:"Please (requesting a thing)", words:[["お願いします","onegai shimasu","please / I request"]],
+     tip:"Point at anything + <b>onegai shimasu</b> = 'this, please.'"},
+    {en:"Yes / No", words:[["はい","hai","yes"],["いいえ","iie","no"]],
+     tip:"A small head bow with <b>hai</b> is natural."},
+    {en:"It's okay / I'm fine / no problem", words:[["大丈夫","daijōbu","okay / fine"],["です","desu","(is)",1]],
+     tip:"<b>Daijōbu</b> also politely declines things: waved off with a hand = 'no thanks, I'm good.'"},
+    {en:"I don't understand", words:[["分かりません","wakarimasen","don't understand"]],
+     tip:"Pair with <b>sumimasen</b> first to soften it."},
+    {en:"Do you speak English?", words:[["英語","eigo","English"],["大丈夫","daijōbu","okay?"],["です か","desu ka","(is it?)",1]],
+     tip:"Honestly, just <b>'Eigo?'</b> with a questioning tone works — pure word salad."}
+  ]
+},
+{
+  cat:"Greetings",
+  note:"Time-of-day matters here, but nobody will be offended if you mix them up.",
+  phrases:[
+    {en:"Hello (daytime)", words:[["こんにちは","konnichiwa","hello"]],
+     tip:"Roughly 10am–sunset."},
+    {en:"Good morning", words:[["おはよう","ohayō","morning"],["ございます","gozaimasu","(polite ending)",1]],
+     tip:"<b>Ohayō</b> alone = casual, fine with hotel staff you see daily."},
+    {en:"Good evening", words:[["こんばんは","konbanwa","good evening"]]},
+    {en:"Goodbye", words:[["さようなら","sayōnara","goodbye"]],
+     tip:"Feels a bit final/formal. Leaving a shop, a smile + <b>arigatō</b> is more natural."},
+    {en:"Good night", words:[["おやすみなさい","oyasumi nasai","good night / rest well"]]}
+  ]
+},
+{
+  cat:"Eating",
+  note:"'Kore' (this) + pointing + 'kudasai' is your entire restaurant strategy.",
+  phrases:[
+    {en:"This, please", words:[["これ","kore","this"],["ください","kudasai","please give"]],
+     tip:"<b>The ordering formula.</b> Point at menu photo → kore kudasai. Done."},
+    {en:"Two of these, please", words:[["これ","kore","this"],["二つ","futatsu","two (items)"],["ください","kudasai","please give"]],
+     tip:"One = <b>hitotsu</b>, two = <b>futatsu</b>, three = <b>mittsu</b>."},
+    {en:"Water, please", words:[["お水","o-mizu","water"],["ください","kudasai","please give"]],
+     tip:"Tap water is free and standard — often arrives without asking."},
+    {en:"Delicious!", words:[["美味しい","oishii","delicious"]],
+     tip:"Say it to staff and watch them light up."},
+    {en:"Check, please", words:[["お会計","o-kaikei","the bill"],["お願いします","onegai shimasu","please"]],
+     tip:"Or make a small ✕ with your fingers — universal 'check please' gesture in Japan."},
+    {en:"Before eating (said like 'bon appétit')", words:[["いただきます","itadakimasu","I humbly receive"]]},
+    {en:"After eating (thanks for the meal)", words:[["ごちそうさまでした","gochisōsama deshita","it was a feast"]],
+     tip:"Said to staff on the way out = very good manners."},
+    {en:"No meat, please", words:[["お肉","o-niku","meat"],["なし","nashi","without"],["で","de","(with that condition)",1],["お願いします","onegai shimasu","please"]],
+     tip:"Word-salad version: <b>[thing] + nashi</b> = 'without [thing].' Works for anything."}
+  ]
+},
+{
+  cat:"Shopping",
+  note:"Cash is still common. 'Kādo' (card) answers the payment question.",
+  phrases:[
+    {en:"How much is it?", words:[["いくら","ikura","how much"],["です か","desu ka","(is it?)",1]],
+     tip:"Just <b>'Ikura?'</b> while holding the item works perfectly."},
+    {en:"Card, okay?", words:[["カード","kādo","card"],["大丈夫","daijōbu","okay?"],["です か","desu ka","(is it?)",1]],
+     tip:"<b>Kādo?</b> with a card in hand = fully understood."},
+    {en:"Cash", words:[["現金","genkin","cash"]]},
+    {en:"Expensive / Cheap", words:[["高い","takai","expensive"],["安い","yasui","cheap"]],
+     tip:"These are two separate words, not one phrase — tap each."},
+    {en:"A bag, please", words:[["袋","fukuro","bag"],["ください","kudasai","please give"]],
+     tip:"Bags often cost a few yen; cashiers will ask. <b>Hai</b> = yes I want one."},
+    {en:"I'm just looking", words:[["見てる","miteru","looking"],["だけ","dake","only"],["です","desu","(is)",1]],
+     tip:"<b>Miteru dake</b> politely fends off shop staff."}
+  ]
+},
+{
+  cat:"Getting Around",
+  note:"'Doko' (where) + any place word + questioning tone = a complete question.",
+  phrases:[
+    {en:"Where is the toilet?", words:[["トイレ","toire","toilet"],["どこ","doko","where"],["です か","desu ka","(is it?)",1]],
+     tip:"<b>'Toire doko?'</b> — word salad at its finest, universally understood."},
+    {en:"Where is the station?", words:[["駅","eki","station"],["どこ","doko","where"],["です か","desu ka","(is it?)",1]],
+     tip:"Swap <b>eki</b> for anything: hoteru (hotel), konbini (convenience store)."},
+    {en:"Left / Right / Straight", words:[["左","hidari","left"],["右","migi","right"],["まっすぐ","massugu","straight"]],
+     tip:"These three words decode most spoken directions you'll receive."},
+    {en:"Near / Far", words:[["近い","chikai","near"],["遠い","tōi","far"]]},
+    {en:"Does this go to Kyoto?", words:[["これ","kore","this"],["京都","Kyōto","Kyoto"],["行きます か","ikimasu ka","goes?"]],
+     tip:"Point at train + <b>'Kore, Kyōto?'</b> — staff will confirm or redirect you."},
+    {en:"Ticket", words:[["切符","kippu","ticket"]]}
+  ]
+},
+{
+  cat:"Trouble",
+  note:"Hopefully never needed. Worth hearing once so they're recognizable.",
+  phrases:[
+    {en:"Help!", words:[["助けて","tasukete","help (me)"]]},
+    {en:"It hurts", words:[["痛い","itai","painful / it hurts"]],
+     tip:"Point at where + <b>itai</b>."},
+    {en:"Hospital", words:[["病院","byōin","hospital"]]},
+    {en:"Police", words:[["警察","keisatsu","police"]],
+     tip:"Small neighborhood police boxes are called <b>kōban</b> — great for directions too, not just emergencies."},
+    {en:"I lost my phone", words:[["携帯","keitai","phone"],["なくしました","nakushimashita","lost (it)"]],
+     tip:"Swap <b>keitai</b>: pasupōto (passport), saifu (wallet), kagi (key)."}
+  ]
+},
+{
+  cat:"Numbers",
+  note:"Prices are usually shown on a register screen anyway — but these help.",
+  phrases:[
+    {en:"1 – 5", list:1, words:[["一","ichi","1"],["二","ni","2"],["三","san","3"],["四","yon","4"],["五","go","5"]]},
+    {en:"6 – 10", list:1, words:[["六","roku","6"],["七","nana","7"],["八","hachi","8"],["九","kyū","9"],["十","jū","10"]]},
+    {en:"100 / 1,000 / 10,000", list:1, words:[["百","hyaku","100"],["千","sen","1,000"],["一万","ichiman","10,000"]],
+     tip:"<b>Ichiman</b> (10,000) is the big one — ¥10,000 notes are the standard large bill."},
+    {en:"Counting things: 1, 2, 3 items", list:1, words:[["一つ","hitotsu","one thing"],["二つ","futatsu","two things"],["三つ","mittsu","three things"]],
+     tip:"Use these when ordering: <b>kore futatsu kudasai</b> = two of these, please."}
+  ]
+}
+];
+
+// ---------- CASUAL ----------
+const CASUAL = {
+  note:"Casual speech is for friends, peers, and people you've gotten to know — plus understanding what's said around you. Read the register box first: it's the part most guides get wrong.",
+  groups:[
+    {name:"The Three Rules", phrases:[
+      {en:"Drop \"desu\" and \"masu\"", words:[["です","desu","(is) — drop it",1],["だ","da","casual 'is'"]],
+       tip:"<b>Takai desu</b> → <b>takai</b>. That's it. Many words you already know (oishii, itai, takai, daijōbu) are <b>already plain form</b> — the app never made you say them stiffly."},
+      {en:"Questions: drop \"ka\", raise your tone", words:[["か","ka","question marker — drop it",1]],
+       tip:"<b>Ikura desu ka</b> → <b>ikura?</b> · <b>Doko desu ka</b> → <b>doko?</b> This is exactly the word-salad you were already doing. Casual is genuinely shorter."},
+      {en:"Add \"ne\" (right?) and \"yo\" (I'm telling you)", words:[["ね","ne","right? / huh"],["よ","yo","(emphasis)"]],
+       tip:"<b>Ne</b> is the highest-value casual word there is. Tack it onto anything to sound warm instead of blunt: <b>oishii ne</b> (tasty, right?), <b>sugoi ne</b>, <b>samui ne</b> (cold, huh)."}
+    ]},
+    {name:"Reactions — Highest Value", phrases:[
+      {en:"Amazing / wow", words:[["すごい","sugoi","amazing"]],
+       tip:"Works for scenery, food, skill, anything. <b>Sugoi ne!</b> is a full conversational contribution on its own."},
+      {en:"Nice / sounds good / that's fine", words:[["いいね","ii ne","nice!"],["いいよ","ii yo","sure, fine"]],
+       tip:"<b>Ii ne</b> = approval. <b>Ii yo</b> = agreeing to something."},
+      {en:"Really? / seriously?", words:[["ほんと","hontō","really"],["まじ","maji","seriously"]],
+       tip:"<b>Hontō?</b> is safe for anyone. <b>Maji?</b> is younger/slangier — fine with peers, odd with a shopkeeper."},
+      {en:"No way! (surprise)", words:[["うそ","uso","no way (lit. 'lie')"]],
+       tip:"Not an accusation — it's the Japanese equivalent of 'you're kidding!'"},
+      {en:"Ah, I see", words:[["なるほど","naruhodo","I see / makes sense"]]},
+      {en:"Um... / well...", words:[["えっと","etto","um…"],["ちょっと","chotto","a bit / hang on"]],
+       tip:"<b>Chotto</b> is a Swiss Army knife: 'a little', 'hang on', and — trailed off as <b>chotto…</b> — a soft 'no thanks' that Japanese speakers use constantly."},
+      {en:"Yeah / yeah yeah", words:[["うん","un","yeah"],["そう","sō","that's right"]],
+       tip:"<b>Un</b> replaces hai casually. <b>Sō sō</b> (repeated) = 'yes exactly.'"},
+      {en:"No good / don't", words:[["だめ","dame","no good"]]},
+      {en:"Crazy / insane (slang)", words:[["やばい","yabai","crazy / wild"]], warn:1,
+       tip:"<b>Use with caution.</b> Means both 'awesome' and 'terrible' depending on tone, and reads as young slang. Fun with friends your age; strange from a tourist to a stranger."}
+    ]},
+    {name:"Casual Swaps", phrases:[
+      {en:"Thanks", from:"arigatō gozaimasu", words:[["ありがとう","arigatō","thanks"],["どうも","dōmo","thanks / hi"]],
+       tip:"<b>Dōmo</b> is the ultra-light one — a nod-and-dōmo covers a lot of small interactions."},
+      {en:"Sorry", from:"sumimasen", words:[["ごめん","gomen","sorry"],["ごめんね","gomen ne","sorry (softer)"]],
+       tip:"<b>Careful:</b> gomen only replaces sumimasen as an <i>apology</i>. To flag down a stranger or staff member, it's still <b>sumimasen</b>."},
+      {en:"I don't get it", from:"wakarimasen", words:[["分かんない","wakannai","dunno / don't get it"]],
+       tip:"Contraction of wakaranai. Very common in speech."},
+      {en:"How much?", from:"ikura desu ka", words:[["いくら","ikura","how much"]]},
+      {en:"Where?", from:"doko desu ka", words:[["どこ","doko","where"]]},
+      {en:"Are you going? / shall we go?", from:"ikimasu ka", words:[["行く","iku","go"],["行こう","ikō","let's go"]],
+       tip:"<b>Ikō!</b> = 'let's go!' — genuinely useful with a travel partner."},
+      {en:"How are you? / you good?", words:[["元気","genki","well / energetic"]],
+       tip:"<b>Genki?</b> = 'you doing okay?' Answer: <b>genki!</b>"},
+      {en:"See ya / later", from:"sayōnara", words:[["じゃあね","jā ne","see ya"],["またね","mata ne","later"],["バイバイ","bai bai","bye bye"]],
+       tip:"All three are warmer and far more natural than sayōnara, which sounds heavy."},
+      {en:"Give me / I'll take it", from:"kudasai", words:[["ちょうだい","chōdai","gimme"]],
+       tip:"Friends only, never staff. With staff, <b>kudasai</b> stays."}
+    ]},
+    {name:"What You'll Hear (don't say these)", phrases:[
+      {en:"Welcome! (shouted as you enter)", words:[["いらっしゃいませ","irasshaimase","welcome, customer"]],
+       tip:"Staff say this to you. No response needed — a nod is plenty. You never say it."},
+      {en:"Understood / certainly", words:[["かしこまりました","kashikomarimashita","certainly, sir/madam"]],
+       tip:"Staff keigo. Means your order landed."},
+      {en:"Sorry to keep you waiting", words:[["お待たせしました","o-matase shimashita","sorry for the wait"]],
+       tip:"Said as your food arrives."},
+      {en:"Is that everything? / anything else?", words:[["以上","ijō","that's all"]],
+       tip:"Reply <b>ijō desu</b> or just <b>hai</b> to close out an order."},
+      {en:"Would you like a bag?", words:[["袋","fukuro","bag"],["いります か","irimasu ka","need it?"]],
+       tip:"Convenience-store cashiers ask this constantly. <b>Hai</b> or <b>daijōbu</b> (= no thanks)."}
+    ]}
+  ]
+};
+// type: "" normal, "dont" = red edge (avoid), "vary" = amber edge (rules vary, check locally)
+// ---------- ETIQUETTE ----------
+const ETIQUETTE = {
+  note:"Red edge = things to avoid. Amber edge = varies by place, check locally. Nobody expects perfection from visitors — a smile and 'sumimasen' fixes almost any slip.",
+  groups:[
+    {name:"Money & Shops", items:[
+      {icon:"💴", type:"dont", rule:"Don't tip — anywhere", why:"No tipping at restaurants, taxis, or hotels. It can cause genuine confusion; staff may chase you down to return it."},
+      {icon:"🫴", rule:"Put money on the tray, not in hands", why:"Registers have a small tray for cash and cards. Place payment there; change comes back the same way."},
+      {icon:"🗑️", rule:"Carry your trash", why:"Public trash cans are rare. Pocket your wrappers until you find a bin (convenience stores usually have them) or get back to the hotel."},
+      {icon:"🍙", type:"vary", rule:"Eating while walking is frowned upon", why:"Soft rule, not a law. Standing to the side to finish a snack is fine; strolling down the street mid-bite draws looks, especially in temples and traditional areas."}
+    ]},
+    {name:"Trains & Public Space", items:[
+      {icon:"🤫", rule:"Trains are quiet", why:"Phones on silent ('manner mode'), no calls, conversations kept low. This one is taken seriously."},
+      {icon:"🚶", type:"vary", rule:"Escalators: stand on one side", why:"Tokyo stands left, Osaka/Kansai stands right. Just copy the locals in front of you. (Rail companies officially discourage walking on escalators at all.)"},
+      {icon:"↔️", rule:"Queue for everything", why:"Train doors have floor markings showing where lines form. Board after everyone exits."},
+      {icon:"🤧", type:"dont", rule:"Don't blow your nose in public", why:"Sniffing is oddly more acceptable. Step into a restroom to blow. Wearing a mask when sick is normal and appreciated."},
+      {icon:"🚕", rule:"Taxi doors open themselves", why:"Rear left doors are driver-operated. Don't grab, open, or slam them — just wait a beat."}
+    ]},
+    {name:"Eating & Drinking", items:[
+      {icon:"🥢", type:"dont", rule:"Never stick chopsticks upright in rice", why:"And never pass food chopstick-to-chopstick. Both mirror funeral rituals — the two big chopstick taboos. Resting them on the holder or across the bowl is fine."},
+      {icon:"🍜", rule:"Slurping noodles is good", why:"Audible slurping of ramen/soba is normal and even signals enjoyment. Genuinely enjoy this one."},
+      {icon:"🍺", rule:"Pour for others, not yourself", why:"When sharing bottles, fill your companion's glass and let them fill yours. Say 'kanpai!' (cheers) before the first sip.",
+       words:[["乾杯","kanpai","cheers!"]]},
+      {icon:"🧻", rule:"The wet towel is for hands only", why:"The oshibori towel before meals is for hands — not face or neck.",
+       words:[["おしぼり","oshibori","wet hand towel"]]}
+    ]},
+    {name:"Shoes, Homes & Ryokan", items:[
+      {icon:"👟", rule:"Shoes off where there's a step up", why:"Genkan (entry area) with a raised floor = shoes off. Applies to homes, ryokan, temples, some restaurants and fitting rooms. Slippers are usually provided.",
+       words:[["玄関","genkan","entryway"]]},
+      {icon:"🩴", type:"dont", rule:"Toilet slippers stay in the toilet", why:"Separate slippers live inside the toilet room. Wearing them back out to the dining room is the classic visitor blunder."},
+      {icon:"🧦", rule:"Never step on tatami with shoes or slippers", why:"Tatami mat rooms are socks or bare feet only — even house slippers come off."}
+    ]},
+    {name:"Temples, Shrines & Onsen", items:[
+      {icon:"⛩️", rule:"Bow slightly at torii gates, walk the sides", why:"At shrines, the center of the path is traditionally for the deity. A small bow entering/leaving is respectful. Nobody polices this — it's a nice gesture."},
+      {icon:"📷", type:"vary", rule:"Check before photographing", why:"Many temple interiors ban photos, and photographing people (especially geisha in Kyoto) without asking is a real sore point — some Gion streets restrict photography."},
+      {icon:"🛁", rule:"Onsen: wash first, soak naked", why:"Shower thoroughly at the washing stations before entering the bath. No swimsuits. The small towel stays out of the water (folded on your head is the classic move)."},
+      {icon:"🖋️", type:"vary", rule:"Tattoos may restrict onsen entry", why:"Policies vary and have been loosening — some baths allow them, some require cover stickers, some refuse. Check the specific onsen's current policy before going."}
+    ]},
+    {name:"Speech Register & Gender", items:[
+      {icon:"⚖️", rule:"Every phrase in this app is gender-neutral", why:"Japanese <b>does</b> have gendered speech — but almost entirely in casual speech. In the polite register tourists use, men and women say the same words identically. Sumimasen, arigatō gozaimasu, kore kudasai: no difference. There is no separate version to learn."},
+      {icon:"🗣️", rule:"Where gender actually shows up: 'I'", why:"<b>Watashi</b> is the safe, neutral 'I' for anyone. <b>Boku</b> and <b>ore</b> are male-coded (ore is rough). <b>Atashi</b> is female-coded and casual. You rarely need any of them — Japanese usually drops the subject entirely.",
+       words:[["私","watashi","I (neutral)"],["僕","boku","I (male, soft)"],["俺","ore","I (male, rough)"],["あたし","atashi","I (female, casual)"]]},
+      {icon:"🎵", rule:"Casual sentence endings are gendered", why:"In plain speech, <b>wa</b> and <b>kashira</b> read feminine; <b>ze</b>, <b>zo</b>, and <b>na</b> read masculine. You won't need these as a visitor, and mimicking them from anime is the most common way learners sound off."},
+      {icon:"🔊", rule:"Pick a voice you like — it's cosmetic", why:"The Voice selector at the top changes which text-to-speech voice reads the words. Japanese TTS voices are gendered (iOS commonly ships Kyoko, female, and sometimes Otoya, male), but the <b>words spoken are identical</b>. Choose by clarity, not by matching your own gender."},
+      {icon:"🙏", type:"vary", rule:"Politeness matters far more than gender", why:"The real register question is polite vs casual, not male vs female. Sticking to the polite forms here is correct for everyone in every situation you'll encounter as a visitor."}
+    ]},
+    {name:"General Manners", items:[
+      {icon:"🙇", rule:"A small bow goes a long way", why:"A slight nod of the head with arigatō or sumimasen is all that's expected of visitors. Don't overthink depth or duration."},
+      {icon:"☝️", type:"dont", rule:"Don't point at people", why:"Gesture with an open hand instead. Pointing at objects or map locations is fine."},
+      {icon:"🎁", rule:"Receive things with both hands", why:"Cards, change trays, gifts, receipts — accepting with two hands reads as polite."}
+    ]}
+  ]
+};
+
+// ---------- SPEECH ----------
+let jaVoice = null;
+let jaVoices = [];
+const voiceSel = document.getElementById('voiceSel');
+const voiceWarn = document.getElementById('voiceWarn');
+
+function pickVoice(){
+  const vs = speechSynthesis.getVoices();
+  if (!vs.length) return;
+  jaVoices = vs.filter(v=>v.lang && v.lang.toLowerCase().replace('_','-').startsWith('ja'));
+  voiceSel.innerHTML = '';
+  if (!jaVoices.length){
+    voiceSel.innerHTML = '<option>No Japanese voice installed</option>';
+    voiceSel.disabled = true;
+    voiceWarn.textContent = "No Japanese voice found on this device, so audio won't play. Look for a Japanese voice under your device's text-to-speech or spoken-content settings — the exact menu path varies by OS version, and I haven't verified it for yours.";
+    voiceWarn.style.display = 'block';
+    jaVoice = null;
+    return;
+  }
+  voiceWarn.style.display = 'none';
+  voiceSel.disabled = false;
+  jaVoices.forEach((v,i)=>{
+    const o = document.createElement('option');
+    o.value = i;
+    o.textContent = v.name + (v.localService ? '' : ' (online)');
+    voiceSel.appendChild(o);
+  });
+  const saved = jaVoices.findIndex(v=>v.name === localStorage_get('voiceName'));
+  const idx = saved >= 0 ? saved : 0;
+  voiceSel.value = idx;
+  jaVoice = jaVoices[idx];
+  if (jaVoices.length === 1){
+    const o = document.createElement('option');
+    o.disabled = true;
+    o.textContent = '— only one Japanese voice installed —';
+    voiceSel.appendChild(o);
+  }
+}
+// in-memory fallback store (avoids storage errors in restricted contexts)
+let _mem = {};
+function localStorage_get(k){ try{ return localStorage.getItem(k); }catch(e){ return _mem[k]; } }
+function localStorage_set(k,v){ try{ localStorage.setItem(k,v); }catch(e){ _mem[k]=v; } }
+
+voiceSel.onchange = ()=>{
+  const i = parseInt(voiceSel.value,10);
+  if (!isNaN(i) && jaVoices[i]){ jaVoice = jaVoices[i]; localStorage_set('voiceName', jaVoice.name); speak('こんにちは', null, false); }
+};
+
+if ('speechSynthesis' in window){
+  pickVoice();
+  speechSynthesis.onvoiceschanged = pickVoice;
+} else {
+  voiceSel.innerHTML = '<option>Not supported</option>';
+  voiceSel.disabled = true;
+  voiceWarn.textContent = "This browser doesn't support speech audio.";
+  voiceWarn.style.display = 'block';
+}
+
+let activeBtn = null;
+function speak(text, btn, slow){
+  if (!('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  if (activeBtn) activeBtn.classList.remove('speaking');
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'ja-JP';
+  if (jaVoice) u.voice = jaVoice;
+  u.rate = slow ? 0.75 : 0.85;
+  activeBtn = btn;
+  if (btn) btn.classList.add('speaking');
+  u.onend = u.onerror = () => { if (btn) btn.classList.remove('speaking'); if (activeBtn===btn) activeBtn=null; };
+  speechSynthesis.speak(u);
+}
+
+// ---------- RENDER ----------
+const tabsEl = document.getElementById('tabs');
+const mainEl = document.getElementById('main');
+let current = 0;
+
+const TAB_NAMES = DATA.map(c=>c.cat).concat(["Casual","Etiquette","Convert"]);
+const IDX_CAS = DATA.length;
+const IDX_ETI = DATA.length + 1;
+const IDX_CONV = DATA.length + 2;
+TAB_NAMES.forEach((name,i)=>{
+  const b = document.createElement('button');
+  b.className = 'tab' + (i===0?' active':'');
+  b.textContent = name;
+  b.setAttribute('role','tab');
+  b.onclick = ()=>{ current=i; render(); tabsEl.querySelectorAll('.tab').forEach((t,j)=>t.classList.toggle('active',j===i)); window.scrollTo({top:0}); };
+  tabsEl.appendChild(b);
+});
+
+function makeTiles(words){
+  const tiles = document.createElement('div');
+  tiles.className = 'tiles';
+  words.forEach(w=>{
+    const [ja, romaji, gloss, particle] = w;
+    const t = document.createElement('button');
+    t.className = 'tile-btn' + (particle ? ' particle' : '');
+    t.innerHTML = `<span class="romaji">${romaji}</span><span class="gloss">${gloss}</span><span class="kana ja-text">${ja}</span>`;
+    t.setAttribute('aria-label', romaji + ', meaning: ' + gloss + '. Tap to hear.');
+    t.onclick = ()=>speak(ja, t, true);
+    tiles.appendChild(t);
+  });
+  return tiles;
+}
+
+// Entries listing alternative words (rather than one phrase) get a pause between them.
+function phraseCard(p){
+  const card = document.createElement('div');
+  card.className = 'card' + (p.warn ? ' warn' : '');
+
+  const listy = p.words.length > 1 && (p.from !== undefined || /\s\/\s/.test(p.en) || p.list === 1);
+  const joiner = listy ? '、' : '';
+  const fullJa = p.words.map(w=>w[0]).join(joiner);
+  const fullRomaji = p.words.map(w=>w[1]).join(listy ? ' / ' : ' ');
+
+  const top = document.createElement('div');
+  top.className = 'card-top';
+  let sub = `<div class="ja-full ja-text">${fullJa} · ${fullRomaji}</div>`;
+  if (p.from) sub += `<div class="swap"><span class="from">${p.from}</span><span class="arrow">→</span>${p.words[0][1]}</div>`;
+  top.innerHTML = `<div class="card-meaning"><div class="en">${p.en}</div>${sub}</div>`;
+
+  const play = document.createElement('button');
+  play.className = 'play';
+  play.innerHTML = PLAY_SVG;
+  play.setAttribute('aria-label', (listy ? 'Play all: ' : 'Play full phrase: ') + fullRomaji);
+  play.onclick = ()=>speak(fullJa, play, false);
+  top.appendChild(play);
+  card.appendChild(top);
+
+  card.appendChild(makeTiles(p.words));
+
+  if (p.tip){
+    const tip = document.createElement('div');
+    tip.className = 'tip';
+    tip.innerHTML = p.tip;
+    card.appendChild(tip);
+  }
+  return card;
+}
+
+function renderCasual(){
+  mainEl.innerHTML = '';
+  const note = document.createElement('p');
+  note.className = 'cat-note';
+  note.textContent = CASUAL.note;
+  mainEl.appendChild(note);
+
+  const box = document.createElement('div');
+  box.className = 'register-box';
+  box.innerHTML =
+    '<h3>Three registers, not two</h3>' +
+    '<div class="lvl"><div class="tag">Keigo</div><div class="txt"><b>Staff → you.</b> Irasshaimase, kashikomarimashita. This is the genuinely formal, over-the-top-sounding layer. You never speak it.</div></div>' +
+    '<div class="lvl you"><div class="tag">Polite</div><div class="txt"><b>You → strangers.</b> Sumimasen, kore kudasai, ikura desu ka. This is the <b>neutral default</b>, not a formal one. Every other tab uses it. To a shop or station worker, polite is the plain, unremarkable way to speak — dropping to casual with them is the marked, off-key choice.</div></div>' +
+    '<div class="lvl"><div class="tag">Casual</div><div class="txt"><b>You → friends and peers.</b> This tab. Use it with each other, with people you\'ve chatted with a while, at an izakaya counter, and to <b>understand</b> what\'s said around you.</div></div>';
+  mainEl.appendChild(box);
+
+  CASUAL.groups.forEach(g=>{
+    const h = document.createElement('div');
+    h.className = 'conv-group';
+    h.textContent = g.name;
+    mainEl.appendChild(h);
+    g.phrases.forEach(p=>mainEl.appendChild(phraseCard(p)));
+  });
+}
+
+function renderEtiquette(){
+  mainEl.innerHTML = '';
+  const note = document.createElement('p');
+  note.className = 'cat-note';
+  note.textContent = ETIQUETTE.note;
+  mainEl.appendChild(note);
+
+  ETIQUETTE.groups.forEach(g=>{
+    const h = document.createElement('div');
+    h.className = 'eti-group';
+    h.textContent = g.name;
+    mainEl.appendChild(h);
+
+    g.items.forEach(item=>{
+      const card = document.createElement('div');
+      card.className = 'eti-card' + (item.type ? ' ' + item.type : '');
+      const body = document.createElement('div');
+      body.className = 'body';
+      body.innerHTML = `<div class="rule">${item.rule}</div><div class="why">${item.why}</div>`;
+      if (item.words) body.appendChild(makeTiles(item.words));
+      card.innerHTML = `<div class="icon">${item.icon}</div>`;
+      card.appendChild(body);
+      mainEl.appendChild(card);
+    });
+  });
+}
+
+const PLAY_SVG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+
+// ---------- CONVERTER ----------
+// FX rates checked 21 July 2026. Sources disagreed; these sit mid-cluster. Editable below.
+const RATES = {
+  usdjpy: parseFloat(localStorage_get('usdjpy')) || 162,
+  phpjpy: parseFloat(localStorage_get('phpjpy')) || 2.60
+};
+
+const UNIT_GROUPS = [
+  {name:"Currency", pairs:[
+    {a:"USD $", b:"JPY ¥", f:v=>v*RATES.usdjpy, g:v=>v/RATES.usdjpy, dpA:2, dpB:0},
+    {a:"PHP ₱", b:"JPY ¥", f:v=>v*RATES.phpjpy, g:v=>v/RATES.phpjpy, dpA:2, dpB:0},
+    {a:"USD $", b:"PHP ₱", f:v=>v*(RATES.usdjpy/RATES.phpjpy), g:v=>v*(RATES.phpjpy/RATES.usdjpy), dpA:2, dpB:2}
+  ]},
+  {name:"Temperature", pairs:[
+    {a:"°C", b:"°F", f:v=>v*9/5+32, g:v=>(v-32)*5/9, dpA:1, dpB:1}
+  ]},
+  {name:"Distance", pairs:[
+    {a:"km", b:"miles", f:v=>v/1.609344, g:v=>v*1.609344, dpA:2, dpB:2},
+    {a:"metres", b:"feet", f:v=>v/0.3048, g:v=>v*0.3048, dpA:2, dpB:2},
+    {a:"cm", b:"inches", f:v=>v/2.54, g:v=>v*2.54, dpA:2, dpB:2}
+  ]},
+  {name:"Weight", pairs:[
+    {a:"kg", b:"lb", f:v=>v/0.45359237, g:v=>v*0.45359237, dpA:2, dpB:2},
+    {a:"grams", b:"oz", f:v=>v/28.349523125, g:v=>v*28.349523125, dpA:1, dpB:2}
+  ]},
+  {name:"Volume", pairs:[
+    {a:"litres", b:"US gal", f:v=>v/3.785411784, g:v=>v*3.785411784, dpA:2, dpB:2},
+    {a:"ml", b:"US fl oz", f:v=>v/29.5735295625, g:v=>v*29.5735295625, dpA:0, dpB:2}
+  ]}
+];
+
+function fmt(n, dp){
+  if (!isFinite(n)) return '';
+  return n.toLocaleString('en-US',{minimumFractionDigits:0, maximumFractionDigits:dp});
+}
+
+function renderConvert(){
+  mainEl.innerHTML = '';
+
+  const note = document.createElement('p');
+  note.className = 'cat-note';
+  note.textContent = 'Type in either box — the other updates live. Everything works offline.';
+  mainEl.appendChild(note);
+
+  const cheat = document.createElement('div');
+  cheat.className = 'cheat';
+  cheat.innerHTML = 'Yen head-math: <b>drop two zeros, then divide by ~1.6</b>. ¥1,000 ≈ $6. ¥3,000 ≈ $19. ¥10,000 ≈ $62.<br>Weather head-math: <b>double it and add 30</b>. 20°C ≈ 68°F (actual 68). 30°C ≈ 90°F (actual 86).';
+  mainEl.appendChild(cheat);
+
+  const rb = document.createElement('div');
+  rb.className = 'rate-box';
+  rb.innerHTML = '<b>Exchange rates are hardcoded, not live.</b> Checked 21 Jul 2026, but published sources disagreed noticeably that day (USD/JPY quoted between ~158.8 and ~162.6; PHP/JPY between ~2.54 and ~2.64). These values sit mid-cluster and are for rough mental math only — not for anything financial. Edit them anytime; changes save on this device.';
+  const edit = document.createElement('div');
+  edit.className = 'rate-edit';
+  [['usdjpy','$1 = ¥','0.01'],['phpjpy','₱1 = ¥','0.0001']].forEach(([key,label,step])=>{
+    const wrap = document.createElement('span');
+    wrap.textContent = label;
+    const inp = document.createElement('input');
+    inp.type = 'number'; inp.step = step; inp.value = RATES[key];
+    inp.setAttribute('aria-label','Rate: ' + label);
+    inp.oninput = ()=>{
+      const v = parseFloat(inp.value);
+      if (v > 0){ RATES[key] = v; localStorage_set(key, v); renderConvert(); }
+    };
+    edit.appendChild(wrap); edit.appendChild(inp);
+  });
+  rb.appendChild(edit);
+  mainEl.appendChild(rb);
+
+  UNIT_GROUPS.forEach(g=>{
+    const h = document.createElement('div');
+    h.className = 'conv-group';
+    h.textContent = g.name;
+    mainEl.appendChild(h);
+
+    g.pairs.forEach(p=>{
+      const row = document.createElement('div');
+      row.className = 'conv-row';
+
+      const mk = (unit, dp)=>{
+        const d = document.createElement('div');
+        d.className = 'conv-side';
+        const i = document.createElement('input');
+        i.type = 'number'; i.inputMode = 'decimal'; i.placeholder = '0';
+        i.setAttribute('aria-label', unit);
+        const u = document.createElement('span');
+        u.className = 'unit'; u.textContent = unit;
+        d.appendChild(i); d.appendChild(u);
+        return {d, i};
+      };
+      const A = mk(p.a, p.dpA), B = mk(p.b, p.dpB);
+
+      A.i.oninput = ()=>{
+        const v = parseFloat(A.i.value);
+        B.i.value = (A.i.value === '' || isNaN(v)) ? '' : fmt(p.f(v), p.dpB).replace(/,/g,'');
+      };
+      B.i.oninput = ()=>{
+        const v = parseFloat(B.i.value);
+        A.i.value = (B.i.value === '' || isNaN(v)) ? '' : fmt(p.g(v), p.dpA).replace(/,/g,'');
+      };
+
+      const eq = document.createElement('div');
+      eq.className = 'conv-eq'; eq.textContent = '=';
+      row.appendChild(A.d); row.appendChild(eq); row.appendChild(B.d);
+      mainEl.appendChild(row);
+    });
+  });
+}
+
+function render(){
+  if (current === IDX_CAS){ renderCasual(); return; }
+  if (current === IDX_ETI){ renderEtiquette(); return; }
+  if (current === IDX_CONV){ renderConvert(); return; }
+  const c = DATA[current];
+  mainEl.innerHTML = '';
+  const note = document.createElement('p');
+  note.className = 'cat-note';
+  note.textContent = c.note;
+  mainEl.appendChild(note);
+
+  c.phrases.forEach(p=>mainEl.appendChild(phraseCard(p)));
+}
+render();
+
+// Optional: enables true offline caching when served over http(s) with sw.js present.
+// Silently does nothing from file:// or if sw.js is missing — single-file use is unaffected.
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  window.addEventListener('load', ()=>{
+    navigator.serviceWorker.register('sw.js').catch(()=>{});
+  });
+}
+</script>
+</body>
+</html>
