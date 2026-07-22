@@ -3,7 +3,7 @@
 // a local server app or opening the HTML directly.
 //
 // Bump CACHE when you edit the HTML, otherwise phones keep serving the old copy.
-const CACHE = 'word-salad-v1';
+const CACHE = 'word-salad-v5';
 const ASSETS = [
   './',
   './index.html'
